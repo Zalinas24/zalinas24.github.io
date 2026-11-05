@@ -8,10 +8,11 @@ output:
 ***
 
 ## Education
+***
 I earned a Bachelor of Science in Health, specializing in Allied Health, with a minor in Nutrition, from Texas A&M University in May 2025. I also hold an Associate of Arts from Blinn College. I am currently pursuing a Master of Public Health in Population and Family Health at Columbia University Mailman School of Public Health, with certificates in Applied Biostatistics and Public Health Data Science.
 
 ## Research
-
+***
 ### Research Interest
 My research interests include immigrant health, reproductive health, and nutrition, with a particular focus on healthcare access among undocumented populations, reproductive justice, and health equity. I am interested in examining how institutional policies, healthcare systems, and social determinants influence access to care and health outcomes.
 
@@ -19,6 +20,7 @@ My research interests include immigrant health, reproductive health, and nutriti
 I have experience conducting quantitative, qualitative, and mixed-methods research across academic and community-based settings. My research experience includes developing national surveys, designing research protocols, conducting and transcribing qualitative interviews, recruiting participants, managing research data, and analyzing findings. My previous projects have examined healthcare access among undocumented populations, healthcare providers' attitudes toward undocumented patients, reproductive justice, and emergency contraception access. I have also contributed to an NSF-funded population study and research involving immigrant communities.
 
 ## Professional Experience
+***
 I currently serve as an Academic Program Assistant for Columbia University's Department of Population and Family Health, where I coordinate and promote departmental programming, develop communications and promotional materials, organize certificate events for first-year students, and support faculty in improving course accessibility and accommodations for students with disabilities.
 
 I also work as a Research Intern with the Section for Health Equity at NYU Langone Health, where I support community-based nutrition research by collecting data through in-person, Spanish-language surveys with residents of the South Bronx.
@@ -26,9 +28,11 @@ I also work as a Research Intern with the Section for Health Equity at NYU Lango
 Previously, I served as a Columbia FORWARD Fellow and Site Coordinator with Catholic Charities Archdiocese of New York through the Summer Youth Employment Program (SYEP). In this role, I coordinated classroom programming, guest speakers, field trips, and virtual and in-person activities for adolescents. I also developed and delivered a six-week health education curriculum for 36 adolescents ages 14-15, covering topics such as cultural humility, racism, implicit bias, nutrition, substance use, and reproductive health.
 
 ## Community Engagement and Volunteer Experience
+***
 I have been involved in community-based initiatives focused on healthcare access, health education, and health equity. My volunteer experience includes supporting emergency contraception access, assisting Spanish-speaking patients and community members, and contributing to local scholarship and community outreach initiatives. I also served as a lead Spanish-language translator at the Red Cross Brazos County Vaccination Hub during the COVID-19 pandemic.
 
 ## Certifications and Skills
+***
 I am a Certified Health Education Specialist (CHES) and hold an Adult Mental Health First Aid certification. My technical skills include SAS, R, Stata, Qualtrics, REDCap, ASA24, and NVivo. I have experience with statistical analysis, survey design, qualitative interviewing, data management, literature reviews, and scientific writing. I am bilingual in English and Spanish.
 
 ## Resume
