@@ -5,8 +5,10 @@ navbar:
   right:
     - text: "About Me"
       href: About-Zaid-Torres.html
+    - text: "Plots"
+      href: Plots.html
     - icon: fa-envelope fa-lg
-      text: Email Me!
+      text: "Email Me!"
       href: mailto:<zt2397@cumc.columbiacom>
     - icon: fa-linkedin fa-lg
       text: "\u00A0LinkedIn"
