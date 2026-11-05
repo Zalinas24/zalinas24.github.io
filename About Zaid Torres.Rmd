@@ -5,6 +5,7 @@ output:
     toc: true
     toc_float: true
 ---
+***
 
 ## Education
 I earned a Bachelor of Science in Health, specializing in Allied Health, with a minor in Nutrition, from Texas A&M University in May 2025. I also hold an Associate of Arts from Blinn College. I am currently pursuing a Master of Public Health in Population and Family Health at Columbia University Mailman School of Public Health, with certificates in Applied Biostatistics and Public Health Data Science.
