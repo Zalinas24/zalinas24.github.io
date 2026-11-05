@@ -4,7 +4,7 @@ navbar:
   title: "Home"
   right:
     - text: "About Me"
-      href: About-zaid-torres.html
+      href: About-Zaid-Torres.html
     - icon: fa-envelope fa-lg
       href: mailto:<zt2397@cumc.columbiacom>
     - icon: fa-brands fa-linkedin-in
