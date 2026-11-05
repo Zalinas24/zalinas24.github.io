@@ -1,13 +1,16 @@
-name: "Yay internet!"
+name: "Homework Website"
 output_dir: "."
 navbar:
   title: "Home"
   right:
     - text: "About"
-      href: about.html
+      href: About-zaid-torres.html
     - icon: fa-envelope fa-lg
-      href: mailto:<you@youremail.com>
+      href: mailto:<zt2397@cumc.columbiacom>
+    - icon: fa-brands fa-linkedin-in
+      href: https://www.linkedin.com/in/zaidtorres/
     - icon: fa-github fa-lg
-      href: http://github.com/<YOUR_GH_NAME>/
+      href: http://github.com/Zalinas24/
 output:
-  html_document
+  html_document: 
+    theme: flatly

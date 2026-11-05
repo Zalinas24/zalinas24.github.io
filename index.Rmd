@@ -1,22 +1,17 @@
 ---
-title: "My awesome website"
+title: "Zaid Torres Salinas: THE Website"
 output: 
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
 ---
 
 # Zaid Torres Website
 
-## Welcome to Zaid's personal website! 
-![]<div style="position: relative; width: 100%; height: 0; padding-top: 129.4118%;
- padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
- border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https://www.canva.com/design/DAHaAPV6kJ4/Cq6b1S61GgaEHa4Urg1Oqg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-  </iframe>
-</div>
-<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAHaAPV6kJ4&#x2F;Cq6b1S61GgaEHa4Urg1Oqg&#x2F;view?utm_content=DAHaAPV6kJ4&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">TorresSalinas_Zaid_CV.pdf</a> by Zaid Torres Salinas
+![](images\Zaid_UNGA.jpeg)
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+<div style="border: 4px solid #2C3E50; border-radius: 0; padding: 20px; font-size: 22px; background-color: #2C3E50; color: white;">
+
+My name is Zaid Torres Salinas, and I am currently 22 years old. I was raised in Bryan, Texas, and currently live in New York City. I am the youngest of two siblings. One of my hobbies is ice skating, although I have not had the chance to explore the skating rinks around the city just yet. I also enjoy exploring new food spots and spending time with friends, especially when I can combine the two.
+
+</div>
