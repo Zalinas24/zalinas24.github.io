@@ -3,7 +3,7 @@ output_dir: "."
 navbar:
   title: "Home"
   right:
-    - text: "About"
+    - text: "About Me"
       href: About-zaid-torres.html
     - icon: fa-envelope fa-lg
       href: mailto:<zt2397@cumc.columbiacom>

@@ -31,3 +31,7 @@ I am a Certified Health Education Specialist (CHES) and hold an Adult Mental Hea
 
 ## Certifications and Skills
 I am a Certified Health Education Specialist (CHES) and hold an Adult Mental Health First Aid certification. My technical skills include SAS, R, Stata, Qualtrics, REDCap, ASA24, and NVivo. I have experience with statistical analysis, survey design, qualitative interviewing, data management, literature reviews, and scientific writing. I am bilingual in English and Spanish.
+
+## Resume
+
+<iframe src="images/TorresSalinas_Zaid_CV.pdf" width="100%" height="800"></iframe>
