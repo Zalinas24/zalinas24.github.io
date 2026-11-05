@@ -4,15 +4,157 @@ output:
   html_document:
     toc: true
     toc_float: true
+    code_folding: hide ## Gives the option to hide the code
 ---
 *** 
-
-# Plots
-
-```{r}
+Click "Show" to see the code
+```{r, message = FALSE}
 library(tidyverse)
 library(p8105.datasets)
-
 library(plotly)
 ```
 
+# Plots
+****
+
+## Inspection Scores by Borough: Box Plot
+```{r}
+inspections_df =
+  rest_inspec |>
+  filter(
+    !is.na(score),
+    score >= 0,
+    !(boro %in% c("Missing", "0"))
+  ) |>
+  distinct(camis, inspection_date, .keep_all = TRUE) |>
+  mutate(
+    boro = str_to_title(boro),
+    boro = fct_reorder(boro, score, .fun = median),
+    dba = str_to_title(dba)
+  )
+
+top_df =
+  inspections_df |>
+  group_by(boro) |>
+  slice_max(score, n = 5, with_ties = FALSE) |>
+  ungroup() |>
+  mutate(
+    text_label = str_c(
+      dba,
+      "\nScore: ", score,
+      "\nDate: ", as.Date(inspection_date)
+    )
+  )
+
+plot_ly(
+  inspections_df,
+  x = ~boro, y = ~score, color = ~boro,
+  type = "box", boxpoints = FALSE, colors = "viridis"
+) |>
+  add_markers(
+    data = top_df,
+    x = ~boro, y = ~score,
+    text = ~text_label, hoverinfo = "text",
+    marker = list(color = "red", size = 8),
+    inherit = FALSE
+  ) |>
+  plotly::layout(
+    xaxis = list(title = "Borough"),
+    yaxis = list(title = "Inspection score"),
+    showlegend = FALSE
+  )
+```
+The box plot shows the quartiles of inspection scores for each borough, and they are very similar across all five. However, the red dots, which mark the five highest-scoring restaurants in each borough, show that every borough has some restaurants with extremely high scores. To put this into perspective, a score of 0-13 earns an A, 14-27 earns a B, and 28 or higher earns a C. Higher scores mean more or more serious violations, so many of these restaurants scored several times over the threshold for a C.
+
+## Mean Dunkin’ Inspection Scores by Year
+
+```{r}
+rest_inspec |>
+  filter(
+    str_detect(dba, regex("dunkin", ignore_case = TRUE)),
+    !is.na(score),
+    score >= 0,
+    !(boro %in% c("Missing", "0"))
+  ) |>
+  distinct(camis, inspection_date, .keep_all = TRUE) |>
+  mutate(
+    boro = str_to_title(boro),
+    year = year(inspection_date)
+  ) |>
+  group_by(boro, year) |>
+  summarize(
+    mean_score = mean(score),
+    n_inspections = n(),
+    .groups = "drop"
+  ) |>
+  filter(n_inspections >= 10) |>
+  mutate(
+    text_label = str_c(
+      boro, ", ", year,
+      "\nMean score: ", round(mean_score, 1),
+      "\nInspections: ", n_inspections
+    )
+  ) |>
+  plot_ly(
+    x = ~year, y = ~mean_score, color = ~boro,
+    text = ~text_label, hoverinfo = "text",
+    type = "scatter", mode = "lines+markers", colors = "viridis"
+  ) |>
+  plotly::layout(
+    xaxis = list(title = "Year", dtick = 1),
+    yaxis = list(title = "Mean inspection score (higher = more violations)"),
+    legend = list(title = list(text = "Borough"))
+  )
+```
+
+As mentioned previously, the lower the score, the cleaner the restaurant. From 2016 to 2017, every borough’s mean Dunkin’ score decreased (got cleaner) except Queens, which rose from 9.6 to 10.7. Brooklyn has seen a steady decline, from 11.1 to 9.9, 9.0, and 8.8, making it the only borough whose score never increased. Manhattan fluctuates, with a high of 10.9 in 2016 and a low of 10.0 in 2019. Staten Island dropped sharply from 11.2 in 2016 to 9.8 in 2017, then rose again to 10.9 in 2018. Similarly, the Bronx saw a sharp decline in 2017, but as of 2019 it has the highest mean score at 13.0.
+
+The sharp drop across nearly every borough between 2016 and 2017 suggests something may have changed during that time, whether in Dunkin’s own practices or in how the city conducted inspections.
+
+## Top and Bottom 5 Cuisine Types by Mean Inspection Score
+
+```{r}
+cuisine_base =
+  rest_inspec |>
+  filter(!is.na(score), score >= 0, !is.na(cuisine_description)) |>
+  distinct(camis, inspection_date, .keep_all = TRUE) |>
+  mutate(
+    cuisine = str_remove(cuisine_description, " \\(.*\\)"),
+    boro = str_to_title(boro)
+  )
+
+cuisine_plot = function(df, min_n) {
+  df |>
+    group_by(cuisine) |>
+    summarize(mean_score = mean(score), n_restaurants = n_distinct(camis)) |>
+    filter(n_restaurants > min_n) |>
+    arrange(mean_score) |>
+    slice(c(1:5, (n() - 4):n())) |>
+    mutate(
+      group = if_else(row_number() <= 5, "5 lowest mean scores", "5 highest mean scores"),
+      cuisine = fct_reorder(cuisine, mean_score)
+    ) |>
+    plot_ly(
+      x = ~mean_score, y = ~cuisine, color = ~group,
+      type = "bar", orientation = "h",
+      colors = c("5 lowest mean scores" = "#18BC9C", "5 highest mean scores" = "#2C3E50")
+    )
+}
+
+plotly::subplot(
+  cuisine_plot(cuisine_base, min_n = 40),
+  cuisine_plot(filter(cuisine_base, boro == "Manhattan"), min_n = 20) |> plotly::style(showlegend = FALSE),
+  margin = 0.2
+) |>
+  plotly::layout(
+    legend = list(orientation = "h", y = -0.15),
+    annotations = list(
+      list(text = "All of NYC", x = 0.15, y = 1.05, xref = "paper", yref = "paper", showarrow = FALSE),
+      list(text = "Manhattan only", x = 0.85, y = 1.05, xref = "paper", yref = "paper", showarrow = FALSE)
+    )
+  )
+```
+
+To keep averages from being driven by just a few restaurants, a cuisine type was included only if it had more than 40 restaurants citywide or more than 20 in Manhattan. The Manhattan cutoff is lower because the borough has only about a third of the city’s restaurants.
+
+The two charts share a lot, especially among the lowest scores. Four of the five lowest-scoring cuisine types appear in both: Donuts, Salads, Sandwiches, and Ice Cream, Gelato, Yogurt, and Ices. Donuts have the lowest mean score in both. Among the highest scores, Spanish cuisine is the only type that appears in both charts. The gap between the two groups is consistent too. The five lowest-scoring cuisines average roughly 10-12, within an A grade, while the five highest average roughly 18-21, within a B. One possible explanation is that the lowest-scoring cuisines mostly serve pre-made or simply prepared food, while the highest-scoring cuisines involve more cooking and food handling, which creates more opportunities for violations.
